@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductCategoryController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace Catalog.API.Controllers
             return Ok(categories);
         }
 
-        [HttpGet]
+        [HttpGet, Route("{id}")]
         public async Task<IActionResult> GetProductCategoryById(string id)
         {
             var productCategory = await _productCategoryRepository.GetProductCategoryById(id);
@@ -43,7 +43,7 @@ namespace Catalog.API.Controllers
             return flag != 0 ? Ok("Product category updated successfully.") : BadRequest("Unable to update product category.");
         }
 
-        [HttpDelete]
+        [HttpDelete, Route("{id}")]
         public async Task<ActionResult> DeleteProductCategory(string id)
         {
             var flag = await _productCategoryRepository.DeleteProductCategory(id);
