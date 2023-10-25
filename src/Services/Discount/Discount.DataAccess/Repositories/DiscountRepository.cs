@@ -19,7 +19,7 @@ namespace Discount.DataAccess.Repositories
             var coupon = await _connection.QueryFirstOrDefaultAsync<Coupon>("SELECT * FROM Coupon WHERE ProductName = @ProductName", new { ProductName = productName });
 
             if (coupon == null)
-                return new Coupon { ProductName = "No Discount", Amount = 0 };
+                return new Coupon { ProductName = "No Discount", Amount = 0 , Description = "No Description" };
 
             return coupon;
         }
