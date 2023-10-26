@@ -1,12 +1,7 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Catalog.API.Entities
+﻿namespace ShoppingApp.Models
 {
-    public class Product
+    public class ProductDtoModel
     {
-        [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string? Id { get; set; }
         public string CategoryId { get; set; } = null!;
         public string Name { get; set; } = null!;
