@@ -128,3 +128,11 @@ services:
       - "AppSettings:OrderingUrl=http://ordering.api/api/"
     ports:
       - "8005:80"
+
+  shoppingapp:
+    container_name: shoppingapp 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ApiSettings:GatewayAddress=http://ocelotapigateway/"
+    ports:
+      - "8006:80"
